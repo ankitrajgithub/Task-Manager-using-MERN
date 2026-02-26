@@ -4,6 +4,8 @@ const cors=require("cors");
 const path=require("path");
 const PORT=process.env.PORT;
 const {connectToDB}=require("./config/db");
+const {authRoutes} =require("./routes/authRoutes");
+
 
 const app=express();
 
@@ -15,7 +17,7 @@ app.use(cors({
     allowedHeaders:["Content-Type","Authorization"]
 }));
 
-// app.use("api/auth",authRoutes);
+app.use("api/auth",authRoutes);
 // app.use("api/reports",reportRoutes);
 // app.use("api/tasks",taskRoutes);
 // app.use("api/users",userRoutes);
